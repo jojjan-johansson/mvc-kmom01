@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}API-samling{% endblock %}
+
+{% block body %}
+    <h1>API-endpoints</h1>
+    <ul>
+        <li><a href="{{ path('api_status') }}">/api/status</a> – status som JSON</li>
+        <li><a href="{{ path('api_quote') }}">/api/quote</a> – dagens citat som JSON</li>
+    </ul>
+{% endblock %}

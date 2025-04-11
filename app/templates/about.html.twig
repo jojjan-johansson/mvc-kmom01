@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Om kursen{% endblock %}
+
+{% block body %}
+    <h1>Om kursen MVC</h1>
+
+    <div style="display: flex; gap: 2em;">
+        <div style="flex: 1;">
+            <p>Kursen MVC handlar om att strukturera webbapplikationer med modellen MVC: Model, View, Controller.</p>
+            <p><a href="https://github.com/dbwebb-se/mvc">Kursens Git-repo</a></p>
+            <p><a href="https://github.com/jojjan-johansson">Mitt GitHub-konto</a></p>
+        </div>
+
+        <div style="flex: 1;">
+            <img src="{{ asset('img/mvc.jpg') }}" alt="MVC-bild" style="max-width: 100%;">
+        </div>
+    </div>
+{% endblock %}
