@@ -1,6 +1,6 @@
 # 🎓 Me-sida – MVC-kursen
 
-![Headerbild](public/img/kod.png)
+![Headerbild](app/public/img/kod.png)
 
 Detta är mitt projekt i kursen **ramverk1 (mvc)** på BTH.
 
@@ -13,7 +13,7 @@ Detta är mitt projekt i kursen **ramverk1 (mvc)** på BTH.
 - JSON API med citat
 
 ## Repo  
-🔗 [Se projektet på GitHub](https://github.com/jojjan-johansson/mvc-me-report)
+🔗 [Se projektet på GitHub](https://github.com/jojjan-johansson/mvc-kmom01)
 
 ## Instruktioner för att komma igång
 
