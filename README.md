@@ -1,6 +1,9 @@
 # 🎓 Me-sida – MVC-kursen
 
+<<<<<<< HEAD
 ![Headerbild](img/kod.png)
+=======
+![Headerbild](app/public/img/kod.png)
 
 Detta är mitt projekt i kursen **ramverk1 (mvc)** på BTH.
 
