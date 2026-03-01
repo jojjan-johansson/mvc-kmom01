@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+
+<p>Drog <strong>{{ number }}</strong> kort. Kort kvar i leken: <strong>{{ remaining }}</strong></p>
+
+{% if drawn is empty %}
+    <p><strong>Leken är slut.</strong> Gå till <a href="{{ path('card_deck_shuffle') }}">shuffle</a> för att återställa.</p>
+{% else %}
+    <div class="deck">
+        {% for card in drawn %}
+            <span class="card {{ card.getColor() }}">{{ card.getAsString() }}</span>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endblock %}

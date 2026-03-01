@@ -1,11 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
-{% block title %}API-samling{% endblock %}
+{% block title %}API{% endblock %}
 
 {% block body %}
-    <h1>API-endpoints</h1>
-    <ul>
-        <li><a href="{{ path('api_status') }}">/api/status</a> – status som JSON</li>
-        <li><a href="{{ path('api_quote') }}">/api/quote</a> – dagens citat som JSON</li>
-    </ul>
+<h1>API</h1>
+
+<p>Här är mina JSON-routes för kmom02.</p>
+
+<ul>
+    <li><strong>GET</strong> <code>/api/deck</code> – visar hela kortleken + antal kvar.</li>
+    <li><strong>POST</strong> <code>/api/deck/shuffle</code> – blandar/återställer kortleken i session.</li>
+    <li><strong>POST</strong> <code>/api/deck/draw</code> – drar 1 kort från session-leken.</li>
+    <li><strong>POST</strong> <code>/api/deck/draw/{number}</code> – drar {number} kort från session-leken.</li>
+</ul>
+
+<pre>
+curl -X POST http://localhost:8888/api/deck/shuffle
+curl -X POST http://localhost:8888/api/deck/draw
+curl -X POST http://localhost:8888/api/deck/draw/5
+</pre>
 {% endblock %}

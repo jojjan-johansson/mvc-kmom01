@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1>{{ title }}</h1>
+
+<p>Kort kvar i leken: <strong>{{ remaining }}</strong></p>
+
+<div class="deck">
+    {% for card in cards %}
+        <span class="card {{ card.getColor() }}">{{ card.getAsString() }}</span>
+    {% endfor %}
+</div>
+{% endblock %}

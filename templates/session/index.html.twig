@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1>Session debug</h1>
+
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">{{ message }}</div>
+{% endfor %}
+
+<p><a href="{{ path('session_delete') }}">Radera session</a></p>
+
+<h2>Sessioninnehåll</h2>
+<pre>{{ sessionData|json_encode(constant('JSON_PRETTY_PRINT')) }}</pre>
+{% endblock %}

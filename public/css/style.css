@@ -103,3 +103,32 @@ footer {
     width: 100%;
     margin-top: 4rem;
 }
+
+
+/* --- Cards (kmom02) --- */
+.deck {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 12px;
+  margin-top: 1.25rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 96px;
+  border-radius: 12px;
+  border: 1px solid #cfcfcf;
+  background: #fff;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.card.red { color: #b00020; }
+.card.black { color: #111; }

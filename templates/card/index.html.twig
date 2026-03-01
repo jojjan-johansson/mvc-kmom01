@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block body %}
+<h1>Card</h1>
+
+<p>Här finns sidor för att visa en kortlek, blanda den och dra kort. Kortleken sparas i sessionen.</p>
+
+<ul>
+    <li><a href="{{ path('card_deck') }}">/card/deck</a> – sorterad kortlek</li>
+    <li><a href="{{ path('card_deck_shuffle') }}">/card/deck/shuffle</a> – blanda & återställ</li>
+    <li><a href="{{ path('card_deck_draw_one') }}">/card/deck/draw</a> – dra 1 kort</li>
+    <li><a href="{{ path('card_deck_draw_many', {number: 5}) }}">/card/deck/draw/5</a> – dra 5 kort</li>
+</ul>
+
+<h2>Klassstruktur</h2>
+<pre>
+Card
+  ^
+  |
+CardGraphic
+
+DeckOfCards --> Card[]
+CardHand    --> Card[]
+</pre>
+{% endblock %}
