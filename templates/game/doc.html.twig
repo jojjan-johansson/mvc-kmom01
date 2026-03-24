@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dokumentation 21{% endblock %}
+
+{% block body %}
+    <h1>Dokumentation – Kortspel 21</h1>
+
+    <h2>Beskrivning</h2>
+    <p>
+        Spelet 21 går ut på att komma så nära 21 poäng som möjligt utan att gå över.
+        Spelaren spelar mot banken. Spelaren kan dra kort eller stanna.
+        När spelaren stannar spelar banken och drar kort tills den har minst 17 poäng.
+    </p>
+
+    <h2>Flödesschema</h2>
+    <img src="{{ asset('img/flowchart-21.png') }}" alt="Flödesschema för spelet 21">
+
+    <h2>Pseudokod</h2>
+    <pre>
+STARTA SPEL
+    skapa kortlek
+    blanda kortlek
+    skapa spelarhand
+    skapa bankhand
+
+SPELARE DRAR KORT
+    dra kort
+    lägg till i spelarhand
+    om poäng > 21
+        banken vinner
+
+SPELARE STANNAR
+    banken drar kort tills >= 17
+
+AVGÖR VINNARE
+    om banken > 21 -> spelaren vinner
+    om banken >= spelaren -> banken vinner
+    annars -> spelaren vinner
+    </pre>
+
+    <h2>Klasser</h2>
+    <ul>
+        <li><strong>Card</strong> – representerar ett kort</li>
+        <li><strong>CardGraphic</strong> – visar kort med symbol</li>
+        <li><strong>CardHand</strong> – håller flera kort</li>
+        <li><strong>DeckOfCards</strong> – hanterar kortlek</li>
+        <li><strong>Game21</strong> – hanterar spelets logik</li>
+    </ul>
+{% endblock %}

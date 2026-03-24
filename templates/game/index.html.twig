@@ -1,0 +1,25 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Spel 21{% endblock %}
+
+{% block body %}
+    <h1>Spel 21</h1>
+
+    <p>
+        Målet är att komma så nära 21 som möjligt utan att gå över.
+        Du spelar mot banken.
+    </p>
+
+    <p>
+        Du kan ta kort eller stanna. När du stannar spelar banken.
+        Banken drar kort tills den har minst 17 poäng.
+    </p>
+
+    <form method="post" action="{{ path('game_init') }}">
+        <button type="submit">Starta nytt spel</button>
+    </form>
+
+    <p>
+        <a href="{{ path('game_doc') }}">Dokumentation</a>
+    </p>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Spela 21{% endblock %}
+
+{% block body %}
+    <h1>Spela 21</h1>
+
+    <div class="status-box">
+        <strong>Status:</strong>
+        <p>{{ status }}</p>
+    </div>
+
+    <div class="game-panel">
+        <h2>Spelare</h2>
+        <p><strong>Poäng:</strong> {{ playerScore }}</p>
+
+        <div class="card-row">
+            {% for card in playerCards %}
+                <div class="card {{ card.getColor() }}">
+                    {{ card.getAsString() }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="game-panel">
+        <h2>Bank</h2>
+
+        {% if gameOver %}
+            <p><strong>Poäng:</strong> {{ bankScore }}</p>
+
+            <div class="card-row">
+                {% for card in bankCards %}
+                    <div class="card {{ card.getColor() }}">
+                        {{ card.getAsString() }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Bankens kort visas när rundan är klar.</p>
+        {% endif %}
+    </div>
+
+    {% if gameOver %}
+        <div class="game-panel">
+            <h2>Resultat</h2>
+            <p>
+                {% if winner == "player" %}
+                    🎉 Spelaren vinner!
+                {% else %}
+                    💀 Banken vinner!
+                {% endif %}
+            </p>
+
+            <div class="button-row">
+                <form method="post" action="{{ path('game_init') }}">
+                    <button type="submit">Spela igen</button>
+                </form>
+            </div>
+        </div>
+    {% else %}
+        <div class="button-row">
+            <form method="post" action="{{ path('game_draw') }}">
+                <button type="submit">Ta kort</button>
+            </form>
+
+            <form method="post" action="{{ path('game_stand') }}">
+                <button type="submit">Stanna</button>
+            </form>
+        </div>
+    {% endif %}
+
+    <p><a href="{{ path('game_index') }}">Tillbaka till startsidan för spelet</a></p>
+{% endblock %}

@@ -1,20 +1,15 @@
 <?php
 
-// Absolute path to the Symfony public directory
-$publicDir = realpath(__DIR__ . "/public") ?: (__DIR__ . "/public");
+if (php_sapi_name() !== 'cli-server') {
+    die('Detta script är bara för PHPs inbyggda server.');
+}
 
-// Serve static files directly (css, images, js)
-$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH) ?? "/";
-$file = $publicDir . $path;
+$publicPath = __DIR__ . '/public';
+$requestUri = urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '/');
+$filePath = $publicPath . $requestUri;
 
-if ($path !== "/" && is_file($file)) {
+if ($requestUri !== '/' && file_exists($filePath) && !is_dir($filePath)) {
     return false;
 }
 
-// Tell Symfony Runtime that index.php is the entrypoint
-$_SERVER["SCRIPT_FILENAME"] = $publicDir . "/index.php";
-$_SERVER["SCRIPT_NAME"] = "/index.php";
-
-// Hand off to Symfony front controller
-require $publicDir . "/index.php";
-return true;
+require_once $publicPath . '/index.php';

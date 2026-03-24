@@ -5,18 +5,21 @@
 {% block body %}
 <h1>API</h1>
 
-<p>Här är mina JSON-routes för kmom02.</p>
+<p>Här är mina JSON-routes för kortleken och spelet 21.</p>
 
 <ul>
-    <li><strong>GET</strong> <code>/api/deck</code> – visar hela kortleken + antal kvar.</li>
-    <li><strong>POST</strong> <code>/api/deck/shuffle</code> – blandar/återställer kortleken i session.</li>
+    <li><strong>GET</strong> <code>/api/deck</code> – visar hela kortleken och antal kort kvar.</li>
+    <li><strong>POST</strong> <code>/api/deck/shuffle</code> – blandar och återställer kortleken i session.</li>
     <li><strong>POST</strong> <code>/api/deck/draw</code> – drar 1 kort från session-leken.</li>
-    <li><strong>POST</strong> <code>/api/deck/draw/{number}</code> – drar {number} kort från session-leken.</li>
+    <li><strong>POST</strong> <code>/api/deck/draw/{number}</code> – drar valt antal kort från session-leken.</li>
+    <li><strong>GET</strong> <code>/api/game</code> – visar aktuell ställning för spelet 21 i JSON.</li>
 </ul>
 
 <pre>
+curl http://localhost:8888/api/deck
 curl -X POST http://localhost:8888/api/deck/shuffle
 curl -X POST http://localhost:8888/api/deck/draw
 curl -X POST http://localhost:8888/api/deck/draw/5
+curl http://localhost:8888/api/game
 </pre>
 {% endblock %}

@@ -1,66 +1,9 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0 auto;
-    max-width: 800px;
-    padding: 2rem;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
     line-height: 1.6;
     background: #f9f9f9;
     color: #222;
-}
-
-h1 {
-    font-size: 2.5rem;
-    border-bottom: 3px solid #5a5a5a;
-    padding-bottom: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-h2 {
-    font-size: 1.8rem;
-    color: #444;
-    margin-top: 2rem;
-}
-
-nav {
-    background-color: #333;
-    padding: 1rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-    color: #ffd700;
-}
-
-img {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-footer {
-    margin-top: 4rem;
-    padding-top: 2rem;
-    border-top: 1px solid #ddd;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #777;
 }
 
 .site-header {
@@ -70,15 +13,25 @@ footer {
     text-align: center;
 }
 
+.site-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
 .site-nav {
     background-color: #eee;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
 }
 
 .site-nav ul {
     list-style: none;
     display: flex;
     gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 0;
     margin: 0;
 }
@@ -89,8 +42,34 @@ footer {
     font-weight: bold;
 }
 
+.site-nav a:hover {
+    text-decoration: underline;
+    color: #000;
+}
+
 .site-content {
-    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.site-content h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid #5a5a5a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.site-content h2 {
+    font-size: 1.8rem;
+    color: #444;
+    margin-top: 2rem;
+}
+
+.site-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .site-footer {
@@ -98,37 +77,86 @@ footer {
     padding: 1rem;
     background-color: #333;
     color: white;
-    position: relative;
-    bottom: 0;
-    width: 100%;
     margin-top: 4rem;
 }
 
-
-/* --- Cards (kmom02) --- */
+/* --- Cards (kmom02 + game) --- */
 .deck {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-  gap: 12px;
-  margin-top: 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 12px;
+    margin-top: 1.25rem;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 96px;
-  border-radius: 12px;
-  border: 1px solid #cfcfcf;
-  background: #fff;
-
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    height: 96px;
+    padding: 0 10px;
+    border-radius: 12px;
+    border: 1px solid #cfcfcf;
+    background: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.card.red { color: #b00020; }
-.card.black { color: #111; }
+.card.red {
+    color: #b00020;
+}
+
+.card.black {
+    color: #111;
+}
+
+.button-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.button-row form {
+    margin: 0;
+}
+
+button {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #555;
+}
+
+.game-panel {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1.5rem;
+}
+
+.status-box {
+    background: #f1f1f1;
+    border-left: 4px solid #333;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+}
