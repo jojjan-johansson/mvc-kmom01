@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+<h1>Metrics analys</h1>
+
+<h2>Introduktion</h2>
+<p>
+I detta kursmoment analyseras kodkvalitet med hjälp av olika verktyg.
+Målet är att förstå hur clean code kan mätas och förbättras.
+</p>
+
+<h2>PhpMetrics</h2>
+<p>
+Vid första mätningen visade PhpMetrics att projektet innehåller 758 rader kod och 17 
+klasser med totalt 66 metoder. Projektet hade 0 kritiska fel, 0 errors och 2 warnings, vilket visar att
+ grundkvaliteten redan var god.
+
+Den genomsnittliga cyclomatic complexity per klass var 2.94, vilket är relativt lågt och tyder på att klasserna
+ inte är onödigt komplexa. Lack of cohesion of methods låg på 1.12 vilket visar att klasserna generellt håller 
+ ihop bra och har tydliga ansvarsområden.
+
+Kopplingen mellan klasserna (average efferent coupling 2.47) visar att vissa klasser har beroenden till 
+andra delar av systemet, men på en rimlig nivå.
+<h3>Före förbättringar</h3>
+
+<ul>
+    <li>LOC: 758</li>
+    <li>Klasser: 17</li>
+    <li>Metoder: 66</li>
+    <li>Warnings: 2</li>
+    <li>Complexity: 2.94</li>
+    <li>PHPUnit: 43 tester</li>
+    <li>Lint: OK</li>
+</ul>
+
+<h2>Scrutinizer</h2>
+<p>
+Här kommer badges och analys när kopplingen mot GitHub är klar.
+</p>
+
+<h2>Förbättringar</h2>
+<p>
+Tre planerade förbättringar:
+</p>
+
+<ul>
+<li>Minska komplexitet i controllers</li>
+<li>Öka testtäckning</li>
+<li>Fixa warnings</li>
+</ul>
+
+<h2>Diskussion</h2>
+<p>
+Att arbeta med metrics gör det lättare att hitta svagheter i koden och förbättra kvaliteten systematiskt.
+</p>
+
+{% endblock %}
