@@ -95,19 +95,19 @@ class LibraryController extends AbstractController
                 'title' => 'Mio min Mio',
                 'isbn' => '9789129688313',
                 'author' => 'Astrid Lindgren',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/8/8c/Mio_my_son_cover.jpg',
+                'image' => '/img/mio.png',
             ],
             [
                 'title' => 'Bröderna Lejonhjärta',
                 'isbn' => '9789129688894',
                 'author' => 'Astrid Lindgren',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/9/95/The_Brothers_Lionheart.jpg',
+                'image' => '/img/lejonhjarta.png',
             ],
             [
                 'title' => 'Ronja Rövardotter',
                 'isbn' => '9789129688825',
                 'author' => 'Astrid Lindgren',
-                'image' => 'https://upload.wikimedia.org/wikipedia/en/7/7b/Ronia_the_Robber%27s_Daughter.jpg',
+                'image' => '/img/ronja.png',
             ],
         ];
 
