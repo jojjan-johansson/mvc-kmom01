@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Alla böcker{% endblock %}
+
+{% block body %}
+    <h2>Alla böcker</h2>
+
+    <p>
+        <a href="{{ path('library') }}">Till bibliotekets startsida</a> |
+        <a href="{{ path('library_create') }}">Lägg till ny bok</a>
+    </p>
+
+    {% if books is empty %}
+        <p>Det finns inga böcker ännu.</p>
+        <p><a href="{{ path('library_reset') }}">Lägg in exempelböcker</a></p>
+    {% else %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Titel</th>
+                    <th>ISBN</th>
+                    <th>Författare</th>
+                    <th>Visa</th>
+                    <th>Uppdatera</th>
+                    <th>Radera</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.isbn }}</td>
+                        <td>{{ book.author }}</td>
+                        <td><a href="{{ path('library_book', { id: book.id }) }}">Visa</a></td>
+                        <td><a href="{{ path('library_update', { id: book.id }) }}">Uppdatera</a></td>
+                        <td>
+                            <form method="post" action="{{ path('library_delete', { id: book.id }) }}">
+                                <button type="submit">Radera</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

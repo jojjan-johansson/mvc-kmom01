@@ -12,4 +12,6 @@ if ($requestUri !== '/' && file_exists($filePath) && !is_dir($filePath)) {
     return false;
 }
 
-require_once $publicPath . '/index.php';
+$_SERVER['SCRIPT_FILENAME'] = $publicPath . '/index.php';
+
+require $publicPath . '/index.php';

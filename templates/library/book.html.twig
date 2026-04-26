@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block body %}
+    <h2>{{ book.title }}</h2>
+
+    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+    <p><strong>Författare:</strong> {{ book.author }}</p>
+
+    <p>
+        <img src="{{ book.image }}" alt="{{ book.title }}" style="max-width: 200px;">
+    </p>
+
+    <p>
+        <a href="{{ path('library_books') }}">Till alla böcker</a> |
+        <a href="{{ path('library_update', { id: book.id }) }}">Uppdatera bok</a>
+    </p>
+
+    <form method="post" action="{{ path('library_delete', { id: book.id }) }}">
+        <button type="submit">Radera bok</button>
+    </form>
+{% endblock %}

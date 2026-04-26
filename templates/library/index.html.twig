@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bibliotek{% endblock %}
+
+{% block body %}
+    <h2>Bibliotek</h2>
+
+    <p>Detta är min bibliotekssida i kmom05. Här används Symfony tillsammans med Doctrine ORM och SQLite.</p>
+
+    <ul>
+        <li><a href="{{ path('library_books') }}">Visa alla böcker</a></li>
+        <li><a href="{{ path('library_create') }}">Lägg till ny bok</a></li>
+        <li><a href="{{ path('library_reset') }}">Återställ biblioteket</a></li>
+    </ul>
+{% endblock %}

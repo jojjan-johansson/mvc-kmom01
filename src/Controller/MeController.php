@@ -21,9 +21,9 @@ class MeController extends AbstractController
     }
 
     #[Route('/report', name: 'report')]
-public function report(): Response
-{
-    return $this->render('report.html.twig');
-}
+    public function report(): Response
+    {
+        return $this->render('report.html.twig');
+    }
 
 }

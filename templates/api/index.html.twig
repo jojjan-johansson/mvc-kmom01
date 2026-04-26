@@ -5,7 +5,9 @@
 {% block body %}
 <h1>API</h1>
 
-<p>Här är mina JSON-routes för kortleken och spelet 21.</p>
+<p>Här är mina JSON-routes för kortleken, spelet 21 och biblioteket.</p>
+
+<h2>Kortlek och spel 21</h2>
 
 <ul>
     <li><strong>GET</strong> <code>/api/deck</code> – visar hela kortleken och antal kort kvar.</li>
@@ -15,11 +17,30 @@
     <li><strong>GET</strong> <code>/api/game</code> – visar aktuell ställning för spelet 21 i JSON.</li>
 </ul>
 
+<h2>Bibliotek</h2>
+
+<ul>
+    <li>
+        <strong>GET</strong>
+        <a href="{{ path('api_library_books') }}"><code>/api/library/books</code></a>
+        – visar alla böcker i JSON.
+    </li>
+    <li>
+        <strong>GET</strong>
+        <a href="{{ path('api_library_book', { isbn: '9789129688313' }) }}">
+            <code>/api/library/book/9789129688313</code>
+        </a>
+        – visar en bok via ISBN i JSON.
+    </li>
+</ul>
+
 <pre>
 curl http://localhost:8888/api/deck
 curl -X POST http://localhost:8888/api/deck/shuffle
 curl -X POST http://localhost:8888/api/deck/draw
 curl -X POST http://localhost:8888/api/deck/draw/5
 curl http://localhost:8888/api/game
+curl http://localhost:8888/api/library/books
+curl http://localhost:8888/api/library/book/9789129688313
 </pre>
 {% endblock %}

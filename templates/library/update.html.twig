@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Uppdatera bok{% endblock %}
+
+{% block body %}
+    <h2>Uppdatera bok</h2>
+
+    <form method="post" action="{{ path('library_update', { id: book.id }) }}">
+        <p>
+            <label for="title">Titel</label><br>
+            <input type="text" id="title" name="title" value="{{ book.title }}" required>
+        </p>
+
+        <p>
+            <label for="isbn">ISBN</label><br>
+            <input type="text" id="isbn" name="isbn" value="{{ book.isbn }}" required>
+        </p>
+
+        <p>
+            <label for="author">Författare</label><br>
+            <input type="text" id="author" name="author" value="{{ book.author }}" required>
+        </p>
+
+        <p>
+            <label for="image">Bildlänk</label><br>
+            <input type="text" id="image" name="image" value="{{ book.image }}" required>
+        </p>
+
+        <button type="submit">Spara ändringar</button>
+    </form>
+
+    <p><a href="{{ path('library_book', { id: book.id }) }}">Tillbaka till boken</a></p>
+{% endblock %}
