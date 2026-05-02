@@ -1,5 +1,8 @@
-# 🎓 Me-sida – MVC-kursen
+#  Me-sida – MVC-kursen
 
+[![Build Status](https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/badges/build.png?b=master)](https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/)
+[![Code Coverage](https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/)
 
 ![Headerbild](img/kod.png)
 =======
@@ -7,7 +10,7 @@
 
 Detta är mitt projekt i kursen **(mvc)** på BTH.
 
-## 📚 Innehåll
+##  Innehåll
 
 - Startsida med personlig presentation
 - About-sida med kursinfo
