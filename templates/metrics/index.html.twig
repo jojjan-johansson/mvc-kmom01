@@ -13,33 +13,41 @@ statisk kodanalys och olika metrics. Syftet är att undersöka hur clean code ka
 mätas och förbättras i ett Symfony-projekt.
 </p>
 
-<p>
-De sex C:na handlar om codestyle, coverage, complexity, cohesion, coupling och CRAP.
-Codestyle visar om koden följer en gemensam kodstandard. Coverage visar hur stor del
-av koden som täcks av tester. Complexity visar hur komplicerade klasser och metoder är.
-Cohesion handlar om hur väl innehållet i en klass hör ihop. Coupling visar hur beroende
-klasser är av varandra. CRAP kombinerar komplexitet och testtäckning och visar kod som
-kan vara riskfylld att underhålla.
-</p>
+<h3>De sex C:na (6C)</h3>
+
+<ul>
+    <li><strong>Codestyle</strong> – handlar om att koden följer en enhetlig standard, till exempel indentering, namngivning och struktur. En bra codestyle gör koden lättare att läsa och underhålla.</li>
+    <li><strong>Coverage</strong> – visar hur stor del av koden som täcks av tester. Hög testtäckning minskar risken för buggar och gör det enklare att ändra i koden.</li>
+    <li><strong>Complexity</strong> – mäter hur komplex koden är, till exempel hur många beslut och grenar som finns i koden. Lägre komplexitet gör koden enklare att förstå och testa.</li>
+    <li><strong>Cohesion</strong> – beskriver hur väl en klass eller modul håller ihop. Hög cohesion betyder att klassen har ett tydligt ansvar.</li>
+    <li><strong>Coupling</strong> – visar hur beroende olika delar av systemet är av varandra. Låg coupling gör koden mer flexibel och lättare att ändra.</li>
+    <li><strong>CRAP</strong> – är ett mått som kombinerar komplexitet och testtäckning. Hög CRAP-score betyder att koden är komplex och dåligt testad.</li>
+</ul>
 
 <h2>PhpMetrics</h2>
 
 <p>
-Vid första mätningen visade PhpMetrics att projektet innehåller 758 rader kod och
+Vid första mätningen visade PhpMetrics att projektet innehöll 758 rader kod och
 17 klasser med totalt 66 metoder. Projektet hade 0 kritiska fel, 0 errors och
-2 warnings, vilket visar att grundkvaliteten redan var god.
+2 warnings, vilket visar att grundkvaliteten redan var relativt god.
 </p>
+
+<figure>
+    <img src="{{ asset('img/phpmetrics.png') }}" alt="Översikt från PhpMetrics rapport">
+    <figcaption>Översikt från min PhpMetrics-rapport före förbättringar.</figcaption>
+</figure>
 
 <p>
 Den genomsnittliga cyclomatic complexity per klass var 2.94, vilket är relativt
-lågt och tyder på att klasserna inte är onödigt komplexa. Lack of cohesion of
-methods låg på 1.12 vilket visar att klasserna generellt håller ihop bra och har
+lågt. Det tyder på att klasserna inte är onödigt komplexa. Lack of cohesion of
+methods låg på 1.12, vilket visar att klasserna generellt håller ihop bra och har
 tydliga ansvarsområden.
 </p>
 
 <p>
 Kopplingen mellan klasserna, average efferent coupling 2.47, visar att vissa
-klasser har beroenden till andra delar av systemet, men på en rimlig nivå.
+klasser har beroenden till andra delar av systemet. Det är inte extremt högt,
+men det är ändå ett område att hålla koll på när projektet växer.
 </p>
 
 <h3>Före förbättringar</h3>
@@ -49,7 +57,10 @@ klasser har beroenden till andra delar av systemet, men på en rimlig nivå.
     <li>Klasser: 17</li>
     <li>Metoder: 66</li>
     <li>Warnings: 2</li>
-    <li>Complexity: 2.94</li>
+    <li>Average cyclomatic complexity by class: 2.94</li>
+    <li>Lack of cohesion of methods: 1.12</li>
+    <li>Average efferent coupling: 2.47</li>
+    <li>Average relative system complexity: 52.76</li>
     <li>PHPUnit: 43 tester och 71 assertions</li>
     <li>Lint: OK</li>
 </ul>
@@ -57,9 +68,9 @@ klasser har beroenden till andra delar av systemet, men på en rimlig nivå.
 <h3>Identifierade förbättringsområden</h3>
 
 <ul>
-    <li>De två warnings som PhpMetrics visar behöver undersökas.</li>
-    <li>Testtäckningen kan förbättras ytterligare genom fler tester.</li>
-    <li>Controllers och routes kan hållas små för att complexity inte ska öka.</li>
+    <li>PhpMetrics visar 2 warnings, vilket betyder att det finns kod som bör undersökas vidare.</li>
+    <li>Average efferent coupling är 2.47, vilket visar att vissa klasser har beroenden till andra delar av systemet.</li>
+    <li>Controllers och routes behöver hållas små så att complexity inte ökar när projektet växer.</li>
 </ul>
 
 <h2>Scrutinizer</h2>
@@ -70,22 +81,43 @@ köra automatisk analys vid push och visa badges för build, coverage och code q
 </p>
 
 <p>
-Vid första försöken misslyckades Scrutinizers byggmiljö när PHP skulle laddas ner i
-CI-miljön. Lokalt fungerar däremot projektets kontroller korrekt: lint är OK,
-PHPUnit ger 43 gröna tester och PhpMetrics-rapporten genereras utan kritiska fel.
+    <a href="https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/">
+        <img src="https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/badges/build.png?b=master" alt="Build status">
+    </a>
+
+    <a href="https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/">
+        <img src="https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/badges/coverage.png?b=master" alt="Code coverage">
+    </a>
+
+    <a href="https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/">
+        <img src="https://scrutinizer-ci.com/g/jojjan-johansson/mvc-kmom01/badges/quality-score.png?b=master" alt="Code quality">
+    </a>
 </p>
 
 <p>
-Badges läggs in här när Scrutinizer har kunnat slutföra sin analys.
+Vid första försöken misslyckades Scrutinizers byggmiljö när PHP 8.3 skulle laddas ner
+i CI-miljön. Felet uppstod innan projektets egna tester kunde köras. Lokalt fungerar
+däremot projektets kontroller korrekt: lint är OK, PHPUnit ger 43 gröna tester och
+PhpMetrics-rapporten genereras utan kritiska fel.
+</p>
+
+<p>
+Jag tolkar därför Scrutinizer-felet som ett problem i byggmiljön eller konfigurationen
+för CI-körningen, inte som ett fel i själva applikationskoden.
 </p>
 
 <h2>Förbättringar</h2>
 
 <p>
-De förbättringar jag valde att arbeta med var att lägga till en egen metrics-sida,
-koppla projektet mot Scrutinizer och säkerställa att kodstil, tester, dokumentation
-och metrics kan köras automatiserat via Composer.
+Jag valde att arbeta med tre förbättringar kopplade till kodkvalitet och automatiserad
+analys.
 </p>
+
+<ul>
+    <li><strong>Codestyle:</strong> Jag körde composer csfix så att koden följer PSR12 och blir mer enhetlig.</li>
+    <li><strong>Automatiserad analys:</strong> Jag lade till PhpMetrics som Composer-script och genererade en ny metrics-rapport.</li>
+    <li><strong>Struktur:</strong> Jag skapade en separat MetricsController och en egen Twig-vy för metrics-sidan, så att rapporten hålls separerad från övriga delar av applikationen.</li>
+</ul>
 
 <h3>Efter förbättringar</h3>
 
@@ -94,17 +126,25 @@ och metrics kan köras automatiserat via Composer.
     <li>Klasser: 18</li>
     <li>Metoder: 67</li>
     <li>Warnings: 2</li>
-    <li>Complexity: 2.83</li>
-    <li>System complexity: 49.91</li>
+    <li>Average cyclomatic complexity by class: 2.83</li>
+    <li>Lack of cohesion of methods: 1.11</li>
+    <li>Average efferent coupling: 2.44</li>
+    <li>Average relative system complexity: 49.91</li>
     <li>PHPUnit: 43 tester och 71 assertions</li>
     <li>Lint: OK</li>
 </ul>
 
 <p>
-Efter förändringarna ökade antalet klasser eftersom en ny MetricsController lades
-till. Trots detta minskade den genomsnittliga complexity från 2.94 till 2.83 och
-system complexity från 52.76 till 49.91. Det visar att den nya koden inte gjorde
-projektet mer komplext.
+Efter förändringarna ökade antalet klasser från 17 till 18 eftersom en ny
+MetricsController lades till. Trots detta minskade average cyclomatic complexity
+från 2.94 till 2.83. Average efferent coupling minskade från 2.47 till 2.44 och
+system complexity minskade från 52.76 till 49.91.
+</p>
+
+<p>
+Det visar att den nya koden inte gjorde projektet mer komplext. Warnings låg kvar
+på 2, vilket betyder att det fortfarande finns förbättringspotential kvar att arbeta
+vidare med.
 </p>
 
 <h2>Diskussion</h2>
@@ -112,13 +152,18 @@ projektet mer komplext.
 <p>
 Det går att arbeta aktivt med kodkvalitet på detta sätt eftersom mätvärden gör det
 lättare att se vad som faktiskt händer i koden. Fördelen är att man får tydliga
-signaler om komplexitet, testtäckning och möjliga svagheter. En nackdel är att
-mätvärden inte säger allt om kodens kvalitet. Koden måste fortfarande vara begriplig
-för människor och fungera i sitt sammanhang.
+signaler om komplexitet, testtäckning, coupling och möjliga svagheter.
 </p>
 
 <p>
-Jag ser metrics, tester och kodstandard som bra stöd för clean code. De ersätter
-inte eget ansvar, men de hjälper till att upptäcka problem tidigare.
+En nackdel är att mätvärden inte säger allt om kodens kvalitet. En låg complexity
+betyder inte automatiskt att koden är bra ur användarens perspektiv. Koden måste
+fortfarande vara begriplig, testbar och fungera i sitt sammanhang.
+</p>
+
+<p>
+Jag ser metrics, tester, kodstandard och CI som bra stöd för clean code. De ersätter
+inte eget ansvar, men de hjälper till att upptäcka problem tidigare och gör det
+lättare att följa upp förändringar över tid.
 </p>
 {% endblock %}
