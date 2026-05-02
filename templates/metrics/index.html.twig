@@ -76,7 +76,7 @@ men det är ändå ett område att hålla koll på när projektet växer.
 <h2>Scrutinizer</h2>
 
 <p>
-Projektet har kopplats till Scrutinizer via GitHub. Syftet är att Scrutinizer ska
+Projektet har kopplats till Scrutinizer via GitHub. Tanken är att Scrutinizer ska
 köra automatisk analys vid push och visa badges för build, coverage och code quality.
 </p>
 
@@ -94,16 +94,32 @@ köra automatisk analys vid push och visa badges för build, coverage och code q
     </a>
 </p>
 
+<figure>
+    <img src="{{ asset('img/scrutinizer.png') }}" alt="Scrutinizer build error">
+    <figcaption>
+        Scrutinizer är kopplat till projektet, men builden misslyckas i CI-miljön
+        innan projektets egna tester hinner köras.
+    </figcaption>
+</figure>
+
 <p>
 Vid första försöken misslyckades Scrutinizers byggmiljö när PHP 8.3 skulle laddas ner
-i CI-miljön. Felet uppstod innan projektets egna tester kunde köras. Lokalt fungerar
-däremot projektets kontroller korrekt: lint är OK, PHPUnit ger 43 gröna tester och
-PhpMetrics-rapporten genereras utan kritiska fel.
+i CI-miljön. Felet uppstod innan projektets egna tester kunde köras. När jag testade
+PHP 8.2 fungerade själva miljön bättre, men då gick Composer inte vidare eftersom
+projektets låsta paket, bland annat PHPUnit, kräver PHP 8.3.
 </p>
 
 <p>
-Jag tolkar därför Scrutinizer-felet som ett problem i byggmiljön eller konfigurationen
-för CI-körningen, inte som ett fel i själva applikationskoden.
+Min tolkning är därför att Scrutinizer-problemet ligger i byggmiljön och inte i
+själva applikationskoden. Lokalt fungerar projektets kontroller korrekt: lint är OK,
+PHPUnit ger 43 gröna tester och PhpMetrics-rapporten genereras utan kritiska fel.
+</p>
+
+<p>
+Eftersom Scrutinizer inte kommer förbi setup-steget får jag inte fram några säkra
+värden för coverage eller code quality från Scrutinizer. Badges finns ändå med för
+att visa kopplingen till verktyget, men min faktiska kvalitetsanalys bygger främst
+på de lokala resultaten från lint, PHPUnit, phpDocumentor och PhpMetrics.
 </p>
 
 <h2>Förbättringar</h2>
