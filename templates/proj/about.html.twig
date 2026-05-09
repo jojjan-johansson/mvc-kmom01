@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Om projektet{% endblock %}
+
+{% block body %}
+<div class="proj-page">
+    <nav class="proj-navbar">
+        <a href="{{ path('proj_home') }}">Climate Dashboard</a>
+        <a href="{{ path('proj_about') }}">Om projektet</a>
+    </nav>
+
+    <main class="proj-content">
+        <section class="proj-card">
+            <h1>Om projektet</h1>
+
+            <p>
+                Detta projekt är en del av MVC-kursen och fokuserar på hållbar utveckling.
+                Syftet är att visualisera klimatrelaterad data på ett enkelt och tydligt sätt.
+            </p>
+
+            <p>
+                Projektet bygger på Agenda 2030 och mål 13, som handlar om att bekämpa
+                klimatförändringarna. Genom att visa data över tid kan man få en bättre
+                förståelse för hur utvecklingen ser ut.
+            </p>
+
+            <p>
+                Webbplatsen använder hårdkodad data istället för externa API:er eller
+                databaser. Fokus ligger på struktur, design och hur information kan
+                presenteras på ett användarvänligt sätt.
+            </p>
+
+            <p>
+                Målet med projektet är att skapa en enkel men tydlig webbplats som skiljer
+                sig från report-sidan både visuellt och innehållsmässigt, och samtidigt
+                uppfyller kursens grundkrav.
+            </p>
+        </section>
+    </main>
+</div>
+{% endblock %}

@@ -396,6 +396,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Controller-MetricsController.html#method_index"
         },                {
+            "fqsen": "\\App\\Controller\\ProjectController",
+            "name": "ProjectController",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Ahome\u0028\u0029",
+            "name": "home",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_home"
+        },                {
+            "fqsen": "\\App\\Controller\\ProjectController\u003A\u003Aabout\u0028\u0029",
+            "name": "about",
+            "summary": "",
+            "url": "classes/App-Controller-ProjectController.html#method_about"
+        },                {
             "fqsen": "\\App\\Controller\\SessionController",
             "name": "SessionController",
             "summary": "",

@@ -134,6 +134,80 @@ en relativt fungerande webbaplikation i sin helhet, eller också olika arbetssä
 
     <section id="kmom06">
         <h2>Kmom06</h2>
-        <p>Redovisningstext...</p>
+        <p><p>
+        Jag upplevde faktiskt att det här momentet blev ganska rörigt. Verktygen som PhpMetrics och Scrutinizer 
+        ger mycket information, men efersom det strulat en hel del för mig i detta kursmoment har jag svårt att 
+        se den direkta nyttan. Det känns som att man får väldigt många mätvärden utan att det alltid är tydligt
+        vad man konkret ska göra med dem.
+        Jag tänker att den här typen av verktyg har större effekt i större projekt, där många utvecklare jobbar 
+        tillsammans kanske och där det finns mer komplex kod att analysera. I mitt projekt blev det mer som en
+        övning i att förstå verktygen än att faktiskt förbättra koden på ett avgörande sätt.
+        Samtidigt ser jag värdet i att få en överblick av kodens struktur, till exempel genom att se komplexitet 
+        och kopplingar mellan klasser. Det kan fungera som ett stöd för att upptäcka problem tidigt, även om det 
+        i detta fall kändes mer som ett extra lager ovanpå en redan fungerande kodbas.
+        
+        Min egen syn på kodkvalitet är att det inte bara handlar om siffror. Jag tycker det är svårt att säga att kod är “bra” 
+        bara för att den har fina värden i olika metrics. För mig är det viktigare att koden är tydlig, går att förstå och att man
+        enkelt kan jobba vidare med den. I mitt fall tycker jag att min kod är helt okej och fungerar som den ska, men mycket av fokus
+        i det här momentet hamnade tyvärr på att få verktygen att fungera istället för att faktiskt förbättra koden, i alla fall för min del.
+        Jag upplevde också hela momentet som ganska rörigt efersom det var många olika verktyg, många steg och saker som inte fungerade som de skulle, 
+        särskilt med Scrutinizer, det gjorde att jag ibland tappade fokus på själva uppgiften och behövde gå igeom kraven flera ggr och ta flera
+        pauser, iblend på några dagar och sen fortsätta.
+
+        Min TIL i detta moment är att jag har lärt mig hur man använder PhpMetrics och Scrutinizer och hur man kan få fram olika mätvärden för kodkvalitet. 
+        Jag har också lärt mig att problem i CI-verktyg ofta inte beror på koden utan på miljön, vilket var tydligt i mitt fall.
+        Men viktigast som alltid i denna utbildning, hur krångligt och svårt det än är så reder jag ut det i slutändan och det är precis det som gör att 
+        man blir en bra utvecklare tror jag.🤩
+        </p></p>
     </section>
+    <section id="kmom10">
+    <h2>Kmom10  Projekt</h2>
+
+    <h3>Krav 1-3: Webbplats</h3>
+    <p>
+        Jag har implementerat grundkraven 1-3 genom att skapa en separat projektdel under <code>/proj</code>.
+        Projektet heter Climate Dashboard och handlar om hållbar utveckling med fokus på klimatförändringar och mål 13 i Agenda 2030.
+        Jag har lagt till länken Projekt i den vanliga navbaren på report-sidan så att landningssidan går att nå därifrån.
+        För att projektdelen skulle kännas som en egen webbplats skapade jag en egen stylesheet, <code>proj.css</code>, med en tydlig grön/blå färgskala och färgblock inspirerade av de globala målen.
+        Startsidan innehåller en hero-sektion, informationsrutor och en enkel visualisering av exempeldata för växthusgasutsläpp.
+        Jag har också skapat en separat projekt-navbar som bara innehåller länkar inom projektet, alltså Climate Dashboard och Om projektet.
+        Under <code>/proj/about</code> finns en kort introduktion som beskriver projektets syfte, fokus och varför jag valt ämnet.
+        Jag har även uppdaterat README, kört tester, genererat phpdoc och uppdaterat metrics så att repo och dokumentation är aktuella.
+    </p>
+
+    <h3>Ej implementerade optionella krav</h3>
+    <p>
+        Jag har valt att inte implementera krav 4, 5 och 6.
+        De kraven är optionella och jag valde att fokusera på att göra grundkraven enbart eftersom jag avslutar kurser från år 1.
+    </p>
+
+    <h3>Genomförande av projektet</h3>
+    <p>
+        Projektet var faktiskt roligt att göra, särskilt när designen började falla på plats och sidan fick en egen känsla.
+        Jag blev nöjd med att den inte bara ser ut som ännu en report-sida, utan faktiskt känns som en liten egen webbplats och
+        denna har verkligen min egna prägel i designen. Jag har märkt att det är som med konstnärer, alla har sin egen stil.
+        Det som var enklast var att skapa routes och templates, eftersom det är sådant vi jobbat med flera gånger under kursen.
+        Det som tog mest tid var att förstå exakt hur projektkraven skulle tolkas och hur mycket som egentligen behövde göras för att uppfylla dem.
+        Jag valde därför att hålla projektet ganska avgränsat och inte bygga in databas eller externa API:er.
+        För mig var det viktigaste att få ihop en fungerande helhet med tydlig struktur, egen design och innehåll som passar projektidén.
+        Jag tycker att projektet var en rimlig avslutning på kursen, eftersom det knöt ihop routing, templates, CSS, dokumentation, tester och publicering.
+        Det blev också extra kul eftersom jag själv arbetar med beslutsstöd och visualisering i mitt jobb, så temat kändes relevant på riktigt, skoj, helt kalart🤩.
+    </p>
+
+    <h3>Tankar om kursen</h3>
+    <p>
+        Kursen som helhet har varit lärorik, men jag tycker också att den har innehållit mycket krångel med saker runt omkring själva kodandet.
+        Jag har absolut lärt mig saker i kursen, men mycket har jag också läst innan i andra utbildningar och fristående kurser,
+        men det är alltid något nytt man får med sig, vilket jag älskar!
+        Samtidigt har vissa moment tagit väldigt mycket energi, särskilt när det handlat om verktyg, tester och Scrutinizer som inte fungerat som förväntat.
+        Då blir det ibland svårt att se vinningen med verktygen, eftersom de mer känns som nya problem och fler buggar att lösa än som hjälp i själva utvecklingen.
+        Jag förstår såklart att man lär sig mycket av fel och problem, och det är ofta där kunskapen fastnar bäst.
+        Men när för mycket tid går åt till strul runt miljöer, CI och verktyg så tappar man också lite energi och fokus från själva programmeringen.
+        Att nöta in ett nytt ramverk och nya arbetssätt är en sak, men att lägga väldigt mycket tid på problem runtomkring är inte alltid så roligt.
+        Jag tycker ändå att kursen har gett mig en starkare grund och gjort mig tryggare i att bygga webbapplikationer med ett riktigt ramverk.
+        Jag skulle rekommendera kursen, men jag hade gärna sett ännu tydligare steg-för-steg-stöd i de moment där många externa verktyg används, eller så är det jag
+        som missat en del av kursmaterialet, dels för min dyslexi men också för en del tidspress, dock vet jag att jag hinner klart med år 1 vilket känns fantastiskt!.
+        På en skala 1-10 ger jag kursen en 8, eftersom innehållet är bra och användbart, även om vägen dit ibland varit onödigt rörig.
+    </p>
+</section>
 {% endblock %}

@@ -1,0 +1,118 @@
+.proj-page {
+    background: #f4f7f2;
+    color: #1f2933;
+    min-height: 100vh;
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.proj-navbar {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: #00689d;
+    border-bottom: 6px solid #3f7e44;
+}
+
+.proj-navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+}
+
+.proj-navbar a:hover {
+    background: #3f7e44;
+}
+
+.proj-hero {
+    background: linear-gradient(135deg, #00689d, #3f7e44);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.proj-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.proj-hero p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.proj-content {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.proj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.proj-goal-box {
+    background: #3f7e44;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 14px;
+    min-height: 150px;
+}
+
+.proj-goal-box.blue {
+    background: #00689d;
+}
+
+.proj-goal-box.dark {
+    background: #19486a;
+}
+
+.proj-goal-number {
+    font-size: 3rem;
+    font-weight: bold;
+    display: block;
+}
+
+.proj-card {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    border-left: 10px solid #3f7e44;
+}
+
+.bar-chart {
+    margin-top: 1.5rem;
+}
+
+.bar-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.bar-year {
+    width: 70px;
+    font-weight: bold;
+}
+
+.bar-track {
+    flex: 1;
+    background: #dbeafe;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    background: #3f7e44;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 999px;
+    font-weight: bold;
+}

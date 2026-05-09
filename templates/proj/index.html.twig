@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Climate Dashboard{% endblock %}
+
+{% block body %}
+<div class="proj-page">
+    <nav class="proj-navbar">
+        <a href="{{ path('proj_home') }}">Climate Dashboard</a>
+        <a href="{{ path('proj_about') }}">Om projektet</a>
+    </nav>
+
+    <header class="proj-hero">
+        <h1>Climate Dashboard</h1>
+        <p>En enkel visualisering av hållbarhetsdata med fokus på klimat och utsläpp.</p>
+    </header>
+
+    <main class="proj-content">
+
+        <!-- Klimat "rutor" (inspirerat av globala målen) -->
+        <section class="proj-grid">
+            <div class="proj-goal-box">
+                <span class="proj-goal-number">13</span>
+                Bekämpa klimatförändringarna
+            </div>
+
+            <div class="proj-goal-box blue">
+                <span class="proj-goal-number">4</span>
+                År med exempeldata
+            </div>
+
+            <div class="proj-goal-box dark">
+                <span class="proj-goal-number">51</span>
+                Miljoner ton CO₂e (2023)
+            </div>
+        </section>
+
+        <!-- Diagram -->
+        <section class="proj-card">
+            <h2>Växthusgasutsläpp över tid</h2>
+            <p>
+                Diagrammet visar exempeldata för utsläpp uttryckt i miljoner ton
+                koldioxidekvivalenter.
+            </p>
+
+            <div class="bar-chart">
+                {% for item in data %}
+                    <div class="bar-row">
+                        <span class="bar-year">{{ item.year }}</span>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: {{ item.value + 20 }}%;">
+                                {{ item.value }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Textsektion -->
+        <section class="proj-card">
+            <h2>Projektets fokus</h2>
+            <p>
+                Projektet handlar om hållbar utveckling och mål 13 i Agenda 2030:
+                att bekämpa klimatförändringarna. Genom att visualisera data kan
+                man enklare förstå utvecklingen över tid.
+            </p>
+        </section>
+
+    </main>
+</div>
+{% endblock %}
